@@ -1,8 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
 import PromptCard from "./PromptCard";
-import { useSession } from "next-auth/react";
-
 const PromptCardList = ({ data, handleTagClick }) => {
   return (
     <div className="mt-16 prompt_layout">
@@ -25,12 +23,10 @@ const Feed = () => {
     const data = await response.json();
     setPosts(data);
   };
-  const { data: session } = useSession();
-
   useEffect(() => {
     // fetch prompts
     fetchPosts();
-  }, [session?.user.id]);
+  }, []);
   return (
     <section className="feed">
       <form className="relative w-full flex-center">
