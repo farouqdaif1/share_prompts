@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import { useState, useEffect } from "react";
 import PromptCard from "./PromptCard";
 
@@ -20,12 +19,13 @@ const Feed = () => {
   const [searchText, setSearchText] = useState("");
   const [posts, setPosts] = useState([]); // [Prompt Object]
   const handleSearchChange = (e) => {};
-  const fetchPosts = async () => {
-    const response = await fetch("/api/prompt/");
-    const data = await response.json();
-    setPosts(data);
-  };
+
   useEffect(() => {
+    const fetchPosts = async () => {
+      const response = await fetch("/api/prompt/");
+      const data = await response.json();
+      setPosts(data);
+    };
     // fetch prompts
     fetchPosts();
   }, []);
