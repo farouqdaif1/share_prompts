@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import PromptCard from "./PromptCard";
 const PromptCardList = ({ data, handleTagClick }) => {
   return (
-    <div className='mt-16 prompt_layout'>
+    <div className="mt-16 prompt_layout">
       {data.map((post) => (
         <PromptCard
           key={post._id}
@@ -27,6 +27,7 @@ const Feed = () => {
 
   useEffect(() => {
     fetchPosts();
+    console.log("fetching posts", allPosts);
   }, []);
   return (
     <section className="feed">
