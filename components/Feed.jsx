@@ -2,8 +2,6 @@
 import { useState, useEffect } from "react";
 import PromptCard from "./PromptCard";
 const PromptCardList = ({ data, handleTagClick }) => {
-  console.log("tag clicked", data);
-
   return (
     <div className="mt-16 prompt_layout">
       {data.map((post) => (
@@ -25,11 +23,14 @@ const Feed = () => {
     const fetchPosts = async () => {
       const response = await fetch("/api/prompt");
       const data = await response.json();
+
       setAllPosts(data);
-      console.log("fetching posts", allPosts);
     };
+
     fetchPosts();
   }, []);
+  console.log(allPosts);
+
   return (
     <section className="feed">
       <form className="relative w-full flex-center">
